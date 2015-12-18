@@ -16,10 +16,12 @@ class UsersController < ApplicationController
   end
   def edit
    @user = User.find(params[:id])
-   redirect_to (root_path) unless current_user == @user
   end
   def update
     @user = User.find(params[:id])
+    unless current_user == @user 
+     redirect_to root_path, notice 'loginし直してください'
+    end
     if @user.update(user_params)
       redirect_to root_path , notice: '基本情報を編集しました'
     else
