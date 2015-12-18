@@ -16,9 +16,10 @@ class UsersController < ApplicationController
   end
   def edit
    @user = User.find(params[:id])
+   redirect_to (root_path) unless current_user == @user
   end
   def update
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to root_path , notice: '基本情報を編集しました'
     else
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
+    
     params.require(:user).permit(:name,:email, :password, :age,:profile,:area,:gender,:password_confirmation)
   end
 end
