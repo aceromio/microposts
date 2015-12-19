@@ -18,10 +18,10 @@
       <%= f.text_area :profile, class: 'form-control' %>
       
       <%= f.label :email %>
-      <%= f.text_area :email, class: 'form-control' %>
+      <%= f.text_field :email, class: 'form-control' %>
 
       <%= f.label :area %>
-      <%= f.select :area,options_for_select(['北海道','東北','関東','中部','関西'], params[:area]), {}, { :class => 'form-control' } %>
+      <%= f.select :area,options_for_select(['北海道','東北','関東','中部','関西'], @user.area), {}, { :class => 'form-control' } %>
   
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
@@ -29,7 +29,7 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Create my account" , class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create mcy account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
