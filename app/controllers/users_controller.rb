@@ -32,10 +32,18 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  def followings
+    #@user = User.find(params[:id])
+    @users = current_user.following_users#.find(params[:id]).followed
+    render 'show_follow'
+  end
+  def followers
+    #@user = User.find(params[:id])
+    @users = current_user.follower_users#.find(params[:id]).followed
+    render 'show_follower'
+  end
   private
-
   def user_params
-    
     params.require(:user).permit(:name,:email, :password, :age,:profile,:area,:gender,:password_confirmation)
   end
 end

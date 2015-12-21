@@ -7,6 +7,8 @@
       </h1>
     </section>
   </aside>
+  <h4>follow<%=link_to  @user.following_users.count, followings_user_path(@user) %></h4>
+  <h4>follower<%=link_to @user.follower_users.count, followers_user_path(@user)%></h4>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
