@@ -2,7 +2,8 @@
   <h3>follow (<%= @current_user.follower_relationships.count %>)</h3>
   <ol class="follower">
 <% @users.each do |user|%>
-  <%= user.name %>
+  <%= gravatar_for user %>
+  <h2><%= user.name %></h2><br />
 <% end%>
   </ol>
 <% else %>
