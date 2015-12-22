@@ -14,8 +14,10 @@
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
-        <%= render @microposts %>
+        <%= render @microposts_page %>
       </ol>
     <% end %>
   </div>
+  <%=paginate(@microposts_page) %>
 </div>
+ 

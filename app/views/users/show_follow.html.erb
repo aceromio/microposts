@@ -1,9 +1,15 @@
-    <% if current_user.following_users.any? %>
-      <h3>follow (<%= @current_user.following_relationships.count %>)</h3>
-    <% @users.each do |user|%>
-      <div class="follow"><%= gravatar_for user %>
-      <%= user.name %></div><br><hr>
+<% if current_user.following_users.any? %>
+  <h3>follow (<%= @users.count %>)</h3>
+  <ol id="follow">
+    <% @followings_pages.each do |user|%>
+      <li class="clearfix">
+        <%= gravatar_for user %>
+        <%= user.name %>
+      </li>
+      <br><hr>
     <% end%>
-    <% else %>
-     <ol>友達がいません</ol>
-    <% end %>
+  </ol>
+<% else %>
+    <div>友達がいません</div>
+<% end %>
+<%=paginate(@followings_pages) %>

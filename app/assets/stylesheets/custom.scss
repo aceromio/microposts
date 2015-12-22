@@ -187,3 +187,9 @@ span.picture {
     border: 0;
   }
 }
+#followings, #followers {
+  list-style: none;
+  li {
+    bottom-margin: 4px;
+  }
+}
