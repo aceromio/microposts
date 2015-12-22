@@ -1,11 +1,9 @@
     <% if current_user.following_users.any? %>
       <h3>follow (<%= @current_user.following_relationships.count %>)</h3>
-      <ol class="follow">
     <% @users.each do |user|%>
-      <p><%= gravatar_for user %>
-      <%= user.name %></p><hr>
+      <div class="follow"><%= gravatar_for user %>
+      <%= user.name %></div><br><hr>
     <% end%>
-      </ol>
     <% else %>
      <ol>友達がいません</ol>
     <% end %>

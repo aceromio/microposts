@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def index
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.page(params[:page]).per(1)
+    @users = User.page(params[:page]).per(1).order(:id)
+  end
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
