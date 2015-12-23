@@ -3,5 +3,14 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
+  <div class="field">
+  　<% if @micropost.image? %>
+      <div class="thumbnail">
+        <%= image_tag @micropost.image.url %>
+      </div>
+    <% end %><br>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
