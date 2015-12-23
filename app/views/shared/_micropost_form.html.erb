@@ -11,6 +11,16 @@
     <% end %><br>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
     </div>
+  <div class="field">
+
+    <% if @micropost.persisted? && @micropost.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
+  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

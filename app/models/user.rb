@@ -29,8 +29,4 @@ class User < ActiveRecord::Base
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
   end
-<<<<<<< HEAD
-  mount_uploader :image, ImageUploader
-=======
->>>>>>> master
 end
