@@ -7,13 +7,12 @@
 
       <%= f.label :age %>
       <%= f.text_field :age, class: 'form-control' %>
-      <span>性別</span>
-      <label class="radio-inline">
-      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
-      </label>
-      <label class="radio-inline">
-      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
-      </label><br><br>
+
+      <%= f.label :gender %><br />
+      <%= f.label :gender, "男" %>
+      <%= f.radio_button :gender, "男"%> 
+      <%= f.label :gender,  "女"  %>
+      <%= f.radio_button :gender, "女" %> 
       
       <%= f.label :profile %>
       <%= f.text_area :profile, class: 'form-control' %>
