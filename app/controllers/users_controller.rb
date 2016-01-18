@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
-    @microposts_page = @microposts.page(params[:page]).per(3)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page]).per(3)
+    #@microposts_page = @microposts
   end
   def new
     @user = User.new
@@ -51,6 +51,7 @@ class UsersController < ApplicationController
     @follower_pages = @users.page(params[:page]).per(2)
     render 'show_follower'
   end
+  
   private
   def user_params
     params.require(:user).permit(:name,:email, :password, :age,:profile,:area,:gender,:password_confirmation,:image, :image_cache, :remove_image)

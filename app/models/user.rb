@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :microposts
   has_many :favorites
   has_many :favorite_microposts,
-           :through => :favorites,
+           through: :favorites,
+           source: :micropost,
            class_name: "Micropost"
   has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
@@ -32,5 +33,16 @@ class User < ActiveRecord::Base
   end
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
+  end
+  def favorite(other_micropost)
+    favorites.find_or_create_by(micropost_id: other_micropost.id)
+  end
+  def unfavorite(other_micropost)
+    favorite_micropost = favorites.find_by(micropost_id: other_micropost.id)
+    favorite_micropost.destroy if favorite_micropost
+  end
+  def favor?(other_micropost)
+    #binding.pry
+    favorite_microposts.include?(other_micropost)
   end
 end

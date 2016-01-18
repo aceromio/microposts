@@ -11,13 +11,13 @@
   <h4>follower<%=link_to @user.follower_users.count, followers_user_path(@user)%></h4>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+    <% if @microposts.any? %>
+      <h3>Microposts (<%= @microposts.count %>)</h3>
       <ol class="microposts">
-        <%= render @microposts_page %>
+        <%= render @microposts %>
       </ol>
     <% end %>
   </div>
-  <%=paginate(@microposts_page) %>
+  <%=paginate(@microposts) %>
 </div>
  

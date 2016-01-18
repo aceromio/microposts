@@ -1,0 +1,6 @@
+<%= form_for(current_user.favorite_microposts.find(micropost.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unfavorite", class: "btn btn-xs btn-warning" %>
+<% end %>
+<%#= link_to "Favorite", micropost_favorite_path(micropost), method: :delete, remote: true, class: 'btn btn-xs btn-warning' %>
