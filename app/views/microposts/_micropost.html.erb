@@ -3,6 +3,7 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content"><%= micropost.content %></span>
   <% if micropost.image.present? %>
+  <%= binding.pry %>
     <span class="image"><%= image_tag micropost.image.url %></span>
   <% end %>
   <span class="timestamp">
