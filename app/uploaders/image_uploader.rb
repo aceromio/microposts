@@ -13,11 +13,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [300, 300]
   end
 
-  if Rails.env.production?
-    include Cloudinary::CarrierWave
-  else
-    storage :file
-  end
+  include Cloudinary::CarrierWave
+  storage :file
+
   def public_id
     model.id
   end
