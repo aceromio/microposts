@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hwezzzpvl
+  api_key: '694586888875988'
+  api_secret: tgO98FRASP9upd-LaufytntxUa0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hwezzzpvl
+  api_key: '694586888875988'
+  api_secret: tgO98FRASP9upd-LaufytntxUa0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hwezzzpvl
+  api_key: '694586888875988'
+  api_secret: tgO98FRASP9upd-LaufytntxUa0
+  enhance_image_tag: true
+  static_image_support: false

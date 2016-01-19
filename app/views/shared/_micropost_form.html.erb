@@ -4,11 +4,6 @@
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
   <div class="field">
-  　<% if @micropost.image? %>
-      <div class="thumbnail">
-        <%= image @micropost.image.url %>
-      </div>
-    <% end %><br>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
