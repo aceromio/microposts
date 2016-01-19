@@ -6,7 +6,7 @@
   <div class="field">
   　<% if @micropost.image? %>
       <div class="thumbnail">
-        <%= image_tag @micropost.image.url %>
+        <%= image @micropost.image.url %>
       </div>
     <% end %><br>
     <%= f.label :image %><br>
