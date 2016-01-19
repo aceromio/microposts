@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :age, numericality: { grater_than_or_equal_to: 0 }
   has_secure_password
   has_many :microposts
   has_many :favorites
@@ -34,15 +35,15 @@ class User < ActiveRecord::Base
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
   end
-  def favorite(other_micropost)
-    favorites.find_or_create_by(micropost_id: other_micropost.id)
+  def favorite(micropost)
+    favorites.find_or_create_by(micropost_id: micropost.id)
   end
   def unfavorite(other_micropost)
     favorite_micropost = favorites.find_by(micropost_id: other_micropost.id)
     favorite_micropost.destroy if favorite_micropost
   end
-  def favor?(other_micropost)
+  def favor?(micropost)
     #binding.pry
-    favorite_microposts.include?(other_micropost)
+    favorites.exists?(micropost_id: micropost.id)
   end
 end

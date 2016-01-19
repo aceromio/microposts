@@ -1,5 +1,4 @@
 <%= form_for(current_user.favorites.build, remote: true) do |f| %>
-  <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+  <%= hidden_field_tag :micropost_id, micropost.id %>
   <%= f.submit "favorite", class: "btn btn-xs btn-default" %>
 <% end %>
-<%#= link_to "Favorite",micropost_favorite_path(micropost), method: :post, remote: true, class: 'btn btn-xs btn-default' %>
