@@ -19,14 +19,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-
   def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
-  def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
+    if original_filename.present?
+        time = Time.now
+        name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+        name.downcase
+    end
   end
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
